@@ -1,0 +1,37 @@
+Karolina Auchimik 82603
+SPRAWOZDANIE
+Mój projekt wykonałam w języku JAVA.
+Laboratorium nr. 1
+W zakładce "Obrazek" wykonałam obrazek domku z kwiatkami, słoneczkiem i obrazkiem ptaka.
+Laboratorium nr. 2 
+W zakładce "Krzywe" wykonałam obrazek ze swoimi inicjałami za pomocą krzywych Beizer'a. 
+Laboratorium nr. 3
+W zakładce "Gra" wykonałam prostą gre 2D, która polega na przeskakiwaniu przeszkód przez dziewczynkę. Przeskoczenie każdej przeszkody nalicze jeden punkty. Gra kończy się w momencie, gdy dziewczynka dotknie przeszkody, wtedy również przestają się naliczać punkty oraz wyskakuje napis "GAME OVER". 
+KOD:
+W Main'ie podaje nazwę pliku png wstawionego do klasy Obrazek, oraz wywołuje Okno z menu. (nie moglam znaleźć błędu i czasami trzeba powiększyć okno żeby pojawiło się menu!!!!)
+
+Klasa "Okno" dziedziczona po JFrame oraz z implementacją ActionListener zawiera zmienne z wielkością okna początkowego oraz okna Obrazku i Krzywych. 
+Konstruktor w klasie Okno inicjuje okno oraz MenuBar.
+
+Klasa "Obrazek" dziedziczona po JFrame definiuje obrazek z domkiem itd. 
+Za pomocą nadpisanej metody paintComponent(Graphics) zaprogramowałam kształty części skłądowych obrazka. 
+Uzyłam obiketów klasy BasicStroke do ustawienie grubości linii. 
+Wywowałam klasy Graphics2D i za pomocą funkcji draw narysowałam kontrury, funkcją fill() wypełniłam, setColor() ustawiłam kolory oraz drawImage wstawiłam obrazek. 
+
+Klasa "Krzywe" dziedziczona po JFrame definiuje obrazek z moimi inicjałami. 
+Metoda bezier() wykorzystuje Graphics oraz współrzędne prowadzone za pomocą tablicy jednowymiarowej. 
+W metodzie bezier() w pętli for() wylicza punkty kontrolne potrzebne do narysowania krzywych beziera. 
+Metoda paintComponent() wywołuje obiekt klasy Graphics2D, wykorzystuje metodę bezier() oraz zaimplementowane są tablice jednowymiarowe ze współrzędnymi punktów.
+
+Klasa "Gra" dziedziczona po JFrame oraz z implementacją ActionListener definiuję grę 2D. 
+Zaimplementowanę są zmienne oraz metody potrzebne do stworzenia okna, mechanizmu gry, zakończenia gry, prowadzenia akcji z klawiatury, oraz rysowania i implemenctacji postaci, przeszkody, podłogi, licznika punktów.
+W kontruktorzy klasy Gra inicjemy okno, MenuBar, za pomocą metody initBox() wprowadza do gry przeszkody, które od prawej do lewej poruszają się. Metoda actionPerformed() odpowiada mechanizm gry. Skok ustawiony jest na 40. Nadpisana metoda actionPerformed() odpowiada za MenuBar.
+Prywatna klasa obstacle inicjuje zmienne potrzebne do stworzenia przeszkod.
+Klasa MoveAction dziedziczona po AbstractAction odpowiada za korzystanie z klawiatury w grze oraz za odswieżanie okna.
+Prywatna klasa DrawPanel dziedziczona po Jpanel odpowiada za ustawienie spacji odpowiadającej za skok, narysowania elementów w oknie. Metoda Dimension zwraca wymiary okna. 
+Metoda gameOver() odpowiada za wyswietlenie przy kolizji gracza z przeszkodą napisu "GAME OVER" wybraną czcionką oraz kolorem.
+MEtoda drawFloor() opowiada za wygląd, wielkość oraz kolor podłogi gry.
+Metoda drawGril() wywołuje metodą drawRaw() "dziewczynkę" narysowaną  "piksel po pikselu" (jedna kratka z której jest zrobiona dziewczynka to 10pixeli na 10 pixeli, wykorzystuje tutaj zmienna step oraz unit ktore odpowiadają za narysowanie dokladnie takiego kwadratu).
+Metoda drawRaw() wywołuje obiekt abc oraz funkcje fill potrzebną do zamalowania kwadratów.
+Metoda draw() odpowiada za kolizje miedzy graczem a przeszkodą oraz zliczanie punktów zdobytych poprzez przeskoczenie przeszkody.
+ 
